@@ -20,5 +20,10 @@ pcd8544_test: $(DIR)/pcd8544_test.c
 pcd8544_test2: $(DIR)/pcd8544_test2.c
 	${CC} -o pcd8544_test2 $(DIR)/pcd8544_test2.c PCD8544.c  -L/usr/local/lib -lwiringPi
 
+install: pcd8544_rpi
+	$(INSTALL) -m 0655 pcd8544_rpi /usr/sbin
+	$(INSTALL) -m 0755 3310_lcd /etc/init.d
+	update-rc.d -f 3310_lcd start 80 2 3 4 5 . stop 30 0 1 6
+
 clean:
 	rm -rf pcd8544_rpi pcd8544_test2 pcd8544_test nokia5110
