@@ -5,6 +5,8 @@
 
 CC = /usr/bin/gcc
 DIR=samples
+INSTALL = @install
+
 
 all: pcd8544_rpi pcd8544_test2 pcd8544_test nokia5110
 

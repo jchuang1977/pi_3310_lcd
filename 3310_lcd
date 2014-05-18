@@ -43,8 +43,6 @@ restart)
     start
     ;;
 
-    ;;
-
 *)
     echo "Usage: $0 start|stop" >&2
     exit 1
