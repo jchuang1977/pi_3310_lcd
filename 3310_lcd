@@ -19,13 +19,13 @@ DAEMON=/usr/sbin/$NAME
 test -x $DAEMON || exit 0
 
 start () {
-    modprobe spi_bcm2708
+#   modprobe spi_bcm2708
     start-stop-daemon --start "$1" --quiet --exec $DAEMON
 }
 
 stop () {
     start-stop-daemon --stop --oknodo --exec $DAEMON
-    rmmod spi_bcm2708
+#    rmmod spi_bcm2708
 }
 
 case "$1" in
