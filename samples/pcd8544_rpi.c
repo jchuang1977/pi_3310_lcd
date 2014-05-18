@@ -49,7 +49,7 @@ Lesser General Public License for more details.
 #include <arpa/inet.h>
 
 // pin setup
-#if 1
+#if 0
 int _din = 10;
 int _sclk = 11;
 int _dc = 3;
@@ -125,7 +125,7 @@ int main (void)
 		 ifr.ifr_addr.sa_family = AF_INET;
 
 		 /* I want IP address attached to "eth0" */
-		 strncpy(ifr.ifr_name, "eth0", IFNAMSIZ-1);
+		 strncpy(ifr.ifr_name, "wlan0", IFNAMSIZ-1);
 
 		 ioctl(fd, SIOCGIFADDR, &ifr);
 
