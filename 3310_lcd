@@ -20,7 +20,7 @@ test -x $DAEMON || exit 0
 
 start () {
 #   modprobe spi_bcm2708
-    start-stop-daemon --start "$1" --quiet --exec $DAEMON
+    start-stop-daemon --start "$1" --quiet --exec $DAEMON -b
 }
 
 stop () {
