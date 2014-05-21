@@ -134,31 +134,30 @@ int main (void)
 		 close(fd);
 
 	  
+	   LCDdrawstring(0, 0, "Alljoyn chatroom");
+	    LCDdrawline(0, 10, 83, 10, BLACK);
+	    
 	  // build screen
 	  //LCDdrawstring(0, 0, "Raspberry Pi:");
 	  if((fp = fopen("/tmp/alljoyn_chat","r")) == NULL)
 	  {
-	        LCDdrawstring(0, 0, "wait for response");
+	        LCDdrawstring(0, 12, "-- wait --");
       }
       else
       {
 		  memset(LineBuf,0,256);
 		  fgets(LineBuf,255,fp);
 		  if(strlen(LineBuf))
-				LCDdrawstring(0, 0, LineBuf);
+				LCDdrawstring(0, 12, LineBuf);
 		  else
-				LCDdrawstring(0, 0, "wait for response");
+				LCDdrawstring(0, 12, "-- wait --");
 			
 			fclose(fp);
 	   }
-	  LCDdrawline(0, 10, 83, 10, BLACK);
-	  LCDdrawstring(0, 12, uptimeInfo);
-	  LCDdrawstring(0, 20, cpuInfo);
-	  LCDdrawstring(0, 28, ramInfo);
-	   LCDdrawstring(0, 36, inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
+
 	  LCDdisplay();
 	  
-	  delay(10000);
+	  delay(1000);
   }
   
     //for (;;){
