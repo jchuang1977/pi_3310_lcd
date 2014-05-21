@@ -16,6 +16,10 @@ nokia5110: nokia5110.c
 pcd8544_rpi: $(DIR)/pcd8544_rpi.c
 	${CC} -o pcd8544_rpi $(DIR)/pcd8544_rpi.c PCD8544.c  -L/usr/local/lib -lwiringPi
 
+pcd8544_alljoyn: $(DIR)/pcd8544_alljoyn.c
+	${CC} -o pcd8544_alljoyn $(DIR)/pcd8544_alljoyn.c PCD8544.c  -L/usr/local/lib -lwiringPi
+
+
 pcd8544_test: $(DIR)/pcd8544_test.c
 	${CC} -o pcd8544_test $(DIR)/pcd8544_test.c PCD8544.c  -L/usr/local/lib -lwiringPi
 
