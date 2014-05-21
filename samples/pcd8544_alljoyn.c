@@ -136,7 +136,7 @@ int main (void)
 	  
 	  // build screen
 	  //LCDdrawstring(0, 0, "Raspberry Pi:");
-	  if((fip = fopen("/tmp/alljoyn_chat","r")) == NULL)
+	  if((fp = fopen("/tmp/alljoyn_chat","r")) == NULL)
 	  {
 	        LCDdrawstring(0, 0, "wait for response");
       }
