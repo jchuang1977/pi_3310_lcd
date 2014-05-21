@@ -8,7 +8,7 @@ DIR=samples
 INSTALL = @install
 
 
-all: pcd8544_rpi pcd8544_test2 pcd8544_test nokia5110
+all: pcd8544_rpi pcd8544_alljoyn pcd8544_test2 pcd8544_test nokia5110
 
 nokia5110: nokia5110.c 
 	${CC} -o nokia5110 nokia5110.c PCD8544.c  -L/usr/local/lib -lwiringPi
