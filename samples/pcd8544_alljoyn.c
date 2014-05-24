@@ -150,9 +150,9 @@ int main (void)
 		  fgets(LineBuf,sizeof(LineBuf),fp);
 		  
 		  if(strlen(LineBuf))
-				LCDdrawstring(0, 12, LineBuf);
+				LCDdrawstring(0, 14, LineBuf);
 		  else
-				LCDdrawstring(0, 12, "--wait--");
+				LCDdrawstring(0, 14, "--wait--");
 			
 			
 			
