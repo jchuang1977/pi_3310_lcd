@@ -69,7 +69,8 @@ int contrast = 50;
 int main (void)
 {
   FILE *fp = NULL;
-  char LineBuf[256];
+  char LineBuf[16];
+  int i = 0 ;
   // print infos
   printf("Raspberry Pi PCD8544 sysinfo display\n");
   printf("========================================\n");
@@ -133,29 +134,33 @@ int main (void)
 
 		 close(fd);
 
+
+		LCDdrawstring(0, 0, "Alljoyn Chat");
+		LCDdrawline(0, 10, 83, 10, BLACK);
 	  
 	  // build screen
 	  //LCDdrawstring(0, 0, "Raspberry Pi:");
 	  if((fp = fopen("/tmp/alljoyn_chat","r")) == NULL)
 	  {
-	        LCDdrawstring(0, 0, "wait for response");
+	        LCDdrawstring(0, 12, "--Wait--");
       }
       else
       {
-		  memset(LineBuf,0,256);
-		  fgets(LineBuf,255,fp);
+		  memset(LineBuf,0,sizeof(LineBuf));
+		  fgets(LineBuf,sizeof(LineBuf),fp);
+		  
 		  if(strlen(LineBuf))
-				LCDdrawstring(0, 0, LineBuf);
+				LCDdrawstring(0, 12, LineBuf);
 		  else
-				LCDdrawstring(0, 0, "--wait--");
+				LCDdrawstring(0, 12, "--wait--");
+			
+			
 			
 			fclose(fp);
 	   }
-	  LCDdrawline(0, 10, 83, 10, BLACK);
-	  LCDdrawstring(0, 12, uptimeInfo);
-	  LCDdrawstring(0, 20, cpuInfo);
-	  LCDdrawstring(0, 28, ramInfo);
-	   LCDdrawstring(0, 36, inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
+	  
+
+	   
 	  LCDdisplay();
 	  
 	  delay(1000);
